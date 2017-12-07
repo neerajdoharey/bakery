@@ -14,5 +14,5 @@ How to run this application:
   * $ rails server
 
 * Rails appliaction url
-  *localhost:3000
+  *  http://localhost:3000
 * ...
