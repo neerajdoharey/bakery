@@ -1,0 +1,22 @@
+
+.grid-x.grid-padding-x
+  .large-8.medium-8.medium-offset-2.cell
+    %h2 Orders
+    %hr/
+    %table
+      %thead
+        %tr
+          %th{:width => "100"} Date
+          %th Name
+          %th Address
+          %th Order History
+      %tbody
+        - @orders.each do |order|
+          %tr
+            %td= order["created_at"].to_time.strftime("%d-%m-%Y")
+            %td= order["name"]
+            %td= order["address"]
+            %td= link_to "View" , order_path(order["id"])
+.text-center
+  [ #{link_to 'Back to the dashboard' ,root_path} ]
+

@@ -1,0 +1,9 @@
+.grid-x.grid-padding-x
+  .large-8.medium-8.medium-offset-2.cell
+    %h2 New Order
+    %hr/
+    = render "form"
+.text-center
+  [ #{link_to 'Back to the dashboard' ,root_path} ]
+
+/ = @order.errors.inspect

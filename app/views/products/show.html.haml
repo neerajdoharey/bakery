@@ -1,0 +1,27 @@
+.grid-x.grid-padding-x
+  .large-8.medium-8.medium-offset-2.cell
+    %h2 Product Detail
+    %hr/
+    .grid-x.grid-padding-x
+      .large-6.medium-6.cell
+        %h6
+          %strong Product Name:
+          = @product.name
+        %h6
+          %strong Product Code:
+          = @product.code
+    %table
+      %thead
+        %tr
+          %th{:width => "200"} Pack Size
+          %th Price
+      %tbody
+        - @product.product_varients.each do |varient|
+          %tr
+            %td= varient.quantity
+            %td 
+              $
+              = varient.price
+          
+.text-center
+  [ #{link_to 'Back to the dashboard' ,root_path} ]

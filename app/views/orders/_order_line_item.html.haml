@@ -1,0 +1,10 @@
+.grid-x.grid-padding-x
+  .large-5.cell
+    = f.label :quantity 
+    = f.text_field :quantity ,placeholder: "quantity"
+  .large-5.cell
+    = f.label :product_id 
+    = f.select(:product_id, Product.all.collect {|u| ["#{u.name} (#{u.code})", u.id]}, :prompt => 'Select')
+  .large-2.cell.delete
+    = link_to 'Delete', '#', class: 'remove_record'
+    = f.hidden_field :_destroy

@@ -1,0 +1,14 @@
+= render "shared/errors", obj: @order 
+= form_for(@order) do |f|
+  .grid-x.grid-padding-x
+    .large-12.cell
+      = f.label :customer_id ,"Customer Name"
+      = f.select(:customer_id, Customer.all.collect {|u| [u.name, u.id]}, :prompt => 'Select')
+    .large-6.cell
+  %h5 Order list
+  %hr/
+  .fields
+    = f.fields_for :order_line_items do |builder|
+      = render 'order_line_item.html', f: builder 
+  = f.submit :class => "button"
+  = link_to_add_row('Add Product', f, :order_line_items, class: 'button') 

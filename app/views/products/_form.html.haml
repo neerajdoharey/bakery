@@ -1,0 +1,16 @@
+= render "shared/errors", obj: @product 
+= form_for(@product) do |f|
+  .grid-x.grid-padding-x
+    .large-6.cell
+      = f.label :name ,"Product Name"
+      = f.text_field :name ,placeholder: "name"
+    .large-6.cell
+      = f.label :code ,"Product Code"
+      = f.text_field :code ,placeholder: "name"
+  %h5 Product Varient
+  %hr/
+  .fields
+    = f.fields_for :product_varients do |builder|
+      = render 'product_varient', f: builder 
+  = f.submit :class => "button"
+  = link_to_add_row('Add Varient', f, :product_varients, class: 'button') 

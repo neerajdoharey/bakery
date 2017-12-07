@@ -1,0 +1,13 @@
+.grid-x.grid-padding-x
+  .large-8.medium-8.medium-offset-2.cell
+    %h2 Customer Details
+    %hr/
+    %h5
+      %strong 
+        Customer Name:
+      =@customer.name
+    %h5
+      %strong Address:
+    %h5=@customer.address
+.text-center
+  [ #{link_to 'Back to the dashboard' ,root_path} ]

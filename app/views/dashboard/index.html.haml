@@ -1,0 +1,41 @@
+.grid-x.grid-padding-x
+  .large-8.medium-8.medium-offset-2.cell
+    %h2 Dashboard
+    %hr/
+    .grid-x.grid-padding-x
+      .large-4.medium-4.cell
+        .card
+          .card-divider
+            %h4
+              %i.fa.fa-file-text-o{"aria-hidden" => "true"}
+              Orders
+          .card-section
+            %ul
+              %li
+                #{link_to 'New Order' ,new_order_path} 
+              %li
+                #{link_to 'Orders List' ,orders_path}  
+      .large-4.medium-4.cell
+        .card
+          .card-divider
+            %h4
+              %i.fa.fa-shopping-cart{"aria-hidden" => "true"}
+              Products
+          .card-section
+            %ul
+              %li
+                #{link_to 'New Product' ,new_product_path} 
+              %li
+                #{link_to 'Products List' ,products_path} 
+      .large-4.cell
+        .card
+          .card-divider
+            %h4
+              %i.fa.fa-user{"aria-hidden" => "true"}
+              Customers
+          .card-section
+            %ul
+              %li
+                #{link_to 'New Customer' ,new_customer_path} 
+              %li
+                #{link_to 'Customers List' ,customers_path} 

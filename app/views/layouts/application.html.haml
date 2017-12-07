@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+!!!
+%html.no-js{:dir => "ltr", :lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "ie=edge", "http-equiv" => "x-ua-compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title Bakery
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %script{:src => "http://code.jquery.com/jquery-latest.min.js", :type => "text/javascript"}
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .top-bar
+      .top-bar-left
+        %ul.dropdown.menu{"data-dropdown-menu" => ""}
+          %li.menu-text Bakery
+          %li
+            #{link_to 'Dashboard' ,root_path}
+          %li
+            %a{:href => "#"} Orders
+            %ul.menu.vertical
+              %li
+                #{link_to 'List orders' ,orders_path}
+              %li
+                #{link_to 'New order' ,new_order_path}
+          %li
+            %a{:href => "#"} Products
+            %ul.menu.vertical
+              %li
+                #{link_to 'Products list' ,products_path}
+              %li
+                #{link_to 'New Product' ,new_product_path}
+          %li
+            %a{:href => "#"} Customers
+            %ul.menu.vertical
+              %li
+                #{link_to 'Customers list' ,customers_path}
+              %li
+                #{link_to 'New Customer' ,new_customer_path}
+
+    .grid-container
+      .margin-top
+        .grid-x.grid-padding-x
+          .large-8.medium-8.medium-offset-2.cell
+            = render "layouts/flash"
+        = yield
+
+    %script{:src => "https://use.fontawesome.com/a2bf64e623.js"}
+
+

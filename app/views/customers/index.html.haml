@@ -1,0 +1,16 @@
+.grid-x.grid-padding-x
+  .large-8.medium-8.medium-offset-2.cell
+    %h2 Customers
+    %hr/
+    %table
+      %thead
+        %tr
+          %th{:width => "200"} Name
+          %th Address
+          %th Action
+      %tbody
+        - @customers.each do |customer|
+          %tr
+            %td= link_to customer.name , customer_path(customer)
+            %td= customer.address
+            %td= link_to "Edit", edit_customer_path(customer)

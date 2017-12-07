@@ -1,0 +1,20 @@
+.grid-x.grid-padding-x
+  .large-8.medium-8.medium-offset-2.cell
+    %h2 Products
+    %hr/
+    %table
+      %thead
+        %tr
+          %th{:width => "200"} Name
+          %th Code
+          %th.text-center{:colspan => 3} Action
+      %tbody
+        - @products.each do |product|
+          %tr
+            %td= link_to product.name , product_path(product)
+            %td= product.code
+            %td{:width => "60"}= link_to "Edit", edit_product_path(product)
+            %td{:width => "60"}= link_to "Show", product_path(product)
+            %td{:width => "60"}= link_to "Delete", product_path(product) , method: :delete ,data: {confirm: "Are you sure"}
+.text-center
+  [ #{link_to 'Back to the dashboard' ,root_path} ]
